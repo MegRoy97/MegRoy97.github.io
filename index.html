@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Megha Roy – SDE &amp; Data Engineer</title>
+<meta name="description" content="Megha Roy is an SDE and data engineer building scalable data pipelines, ETL workflows and AI-powered backend systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #090909;
+  --surface: #151515;
+  --text: #f2f2f2;
+  --muted: #a6a6a6;
+  --line: #2c2c2c;
+  --accent: #ff7ab8;
+  --on-accent: #090909;
+  color-scheme: dark;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html { background: var(--bg); scroll-padding-top: env(safe-area-inset-top, 0px); }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 2.25rem 1.25rem 3rem;
+  background-color: var(--bg);
+  background-image: radial-gradient(#242424 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--text);
+  font-family: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+main { max-width: 56rem; margin: 0 auto; }
+h1, h2, h3, dt, .node { font-family: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif; }
+h1 { margin: 0; font-size: clamp(2.75rem, 11vw, 5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+h2 { margin: 0; font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+h3 { margin: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.3; }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:focus-visible, summary:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.role { margin: 0.75rem 0 0; font-size: 1.25rem; font-weight: 500; }
+.where { margin: 0; color: var(--muted); }
+.links { margin: 1.1rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.links a { display: inline-block; padding: 0.45rem 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--text); text-decoration: none; }
+.links a:hover { border-color: var(--accent); }
+.links a.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 700; }
+.intro { margin: 1.5rem 0 0; max-width: 42rem; }
+.bar { margin: 1.5rem 0 0.5rem; text-align: right; }
+.bar button { background: none; border: 0; padding: 0.25rem 0; color: var(--muted); font: inherit; font-size: 0.9rem; cursor: pointer; text-decoration: underline; text-underline-offset: 0.2em; }
+.bar button:hover { color: var(--text); }
+
+.sec { border-top: 1px solid var(--line); }
+.sec:last-of-type { border-bottom: 1px solid var(--line); }
+summary { list-style: none; cursor: pointer; }
+summary::-webkit-details-marker { display: none; }
+.sec > summary { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.2rem 1rem; padding: 1rem 0; }
+.gist { grid-column: 1 / -1; grid-row: 2; color: var(--muted); font-size: 0.95rem; }
+.icon { width: 0.6rem; height: 0.6rem; flex: none; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg); transition: transform 0.2s; margin-right: 0.25rem; }
+.sec > summary .icon { grid-column: 2; grid-row: 1; }
+details[open] > summary .icon { transform: rotate(-135deg); }
+.sec[open] > summary .gist { display: none; }
+.body { padding: 0.25rem 0 1.5rem; }
+@media (min-width: 48rem) {
+  .sec > summary { grid-template-columns: 10rem 1fr auto; }
+  .gist { grid-column: 2; grid-row: 1; }
+  .sec > summary .icon { grid-column: 3; }
+  .body { padding-left: 11rem; }
+}
+
+.flow { display: flex; flex-direction: column; align-items: stretch; margin-bottom: 0.5rem; }
+.node { padding: 0.7rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-weight: 500; text-align: center; line-height: 1.3; }
+.wire { align-self: center; width: 2px; height: 1.5rem; background: repeating-linear-gradient(180deg, var(--accent) 0 6px, transparent 6px 12px); background-size: 2px 12px; animation: down 0.7s linear infinite; }
+.caption { margin: 0.5rem 0 1.5rem; color: var(--muted); font-size: 0.9rem; }
+@keyframes down { to { background-position: 0 12px; } }
+@keyframes across { to { background-position: 12px 0; } }
+@media (min-width: 44rem) {
+  .flow { flex-direction: row; align-items: center; }
+  .node { flex: 1; padding: 0.7rem 0.5rem; font-size: 0.9rem; }
+  .wire { flex: 0 0 1.25rem; width: auto; height: 2px; background: repeating-linear-gradient(90deg, var(--accent) 0 6px, transparent 6px 12px); background-size: 12px 2px; animation-name: across; }
+}
+@media (prefers-reduced-motion: reduce) { .wire { animation: none; } .icon { transition: none; } }
+
+.job { position: relative; margin-bottom: 1.25rem; padding-left: 1.25rem; border-left: 2px solid var(--line); }
+.job:last-child { margin-bottom: 0; }
+.job::before { content: ""; position: absolute; left: -7px; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--bg); }
+.job > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.meta { display: block; color: var(--muted); font-size: 0.9rem; }
+ul.plain { margin: 0.75rem 0 0; padding-left: 1.1rem; max-width: 40rem; }
+ul.plain li { margin-bottom: 0.55rem; }
+dl { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem 2rem; }
+dt { font-weight: 800; }
+dd { margin: 0.15rem 0 0; color: var(--muted); }
+.item { margin-bottom: 1.25rem; }
+.item:last-child { margin-bottom: 0; }
+.item p { margin: 0.25rem 0 0; max-width: 40rem; }
+
+@media print {
+  html, body { background: #fff; color: #000; }
+  body { background-image: none; padding: 0; }
+  .bar, .flow, .caption { display: none; }
+  h2, a, dd, .meta, .gist { color: #000; }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Megha Roy</h1>
+    <p class="role">SDE &amp; Data Engineer</p>
+    <p class="where">Bangalore, India</p>
+    <ul class="links">
+      <li><a class="primary" href="mailto:megroy1997@gmail.com">Email me</a></li>
+      <li><a href="https://www.linkedin.com/in/megroy97/">LinkedIn</a></li>
+      <li><a href="https://github.com/MegRoy97">GitHub</a></li>
+      <li><a href="https://leetcode.com/u/MegR/">LeetCode</a></li>
+    </ul>
+    <p class="intro">5+ years building scalable data pipelines, ETL workflows and AI-powered backend systems with Python, PySpark, MongoDB, ElasticSearch, Kubernetes and AWS.</p>
+  </header>
+
+  <p class="bar"><button type="button" id="toggle">Expand all</button></p>
+
+  <details class="sec">
+    <summary>
+      <h2>Experience</h2>
+      <span class="gist">NI (National Instruments) since 2020: Software Engineer II, Software Engineer I, RF Driver Intern</span>
+      <span class="icon" aria-hidden="true"></span>
+    </summary>
+    <div class="body">
+      <div class="flow" role="img" aria-label="Customer usage data flows through AWS S3, Python and Qubole, and ElasticSearch to R&amp;D and Sales teams">
+        <div class="node">Customer usage data</div><div class="wire" aria-hidden="true"></div>
+        <div class="node">AWS S3</div><div class="wire" aria-hidden="true"></div>
+        <div class="node">Python and Qubole</div><div class="wire" aria-hidden="true"></div>
+        <div class="node">ElasticSearch</div><div class="wire" aria-hidden="true"></div>
+        <div class="node">R&amp;D and Sales</div>
+      </div>
+      <p class="caption">A simplified view of the ETL workflows I maintain at NI.</p>
+
+      <details class="job" open>
+        <summary>
+          <span><h3>Software Engineer II, NI (National Instruments)</h3><span class="meta">Jan 2023 – Present</span></span>
+          <span class="icon" aria-hidden="true"></span>
+        </summary>
+        <ul class="plain">
+          <li>Built data pipelines using SQL and PySpark across Qubole and Snowflake data lakes to extract, transform and join business datasets. Automated Python workflows that integrate Gainsight REST APIs and enrich customer records with business intelligence.</li>
+          <li>Built an LLM-powered natural language to MongoDB query generator using Python, PyMongo and the OpenAI API, retrieving schema context to generate accurate queries. Delivered a Streamlit frontend that lets non-technical users run complex queries without schema knowledge, reducing reliance on data engineers and speeding up self-serve insight.</li>
+          <li>Designed and maintained ETL workflows using Python, AWS S3, Qubole, ElasticSearch and Rancher to process customer product usage data, helping R&amp;D and Sales teams make data-driven projections and decisions.</li>
+          <li>Developed PySpark datasets on Qubole for advanced analytics, supporting customer segmentation and product usage trend analysis.</li>
+          <li>Added Customer Experience Improvement Program (CEIP) data logging in C++ and C# within LabVIEW and NI’s licensing codebase, enabling more targeted customer engagement and product updates.</li>
+          <li>Developed and maintained CI/CD pipelines for multiple NI products, streamlining feature deployment and keeping a continuous watch on product stability and performance.</li>
+        </ul>
+      </details>
+      <details class="job">
+        <summary>
+          <span><h3>Software Engineer I, NI (National Instruments)</h3><span class="meta">Jul 2021 – Dec 2022</span></span>
+          <span class="icon" aria-hidden="true"></span>
+        </summary>
+        <ul class="plain">
+          <li>Optimized Python, LabVIEW and C++ test automation workflows across multiple NI products, contributing to an 80% reduction in required testing time.</li>
+          <li>Integrated new functionality into SLSC to display calibration metadata (next calibration date, due date, gain, offset) using Python, C++ and LabVIEW, with GTests to validate the new modules.</li>
+          <li>Served as Scrum Master for the team and mentored interns and new hires on engineering practices and team workflows.</li>
+        </ul>
+      </details>
+      <details class="job">
+        <summary>
+          <span><h3>RF Driver Intern, NI (National Instruments)</h3><span class="meta">Sep 2020 – Jun 2021</span></span>
+          <span class="icon" aria-hidden="true"></span>
+        </summary>
+        <ul class="plain">
+          <li>Migrated smoke and speed tests for multiple RF personalities from Jenkins to NI Dashboard using Python, YAML, Mako and GNU Make, automating test execution and streamlining test infrastructure.</li>
+        </ul>
+      </details>
+    </div>
+  </details>
+
+  <details class="sec">
+    <summary>
+      <h2>Skills</h2>
+      <span class="gist">Python, Java, C++, SQL; PySpark, Snowflake, MongoDB; AWS, Docker, Kubernetes</span>
+      <span class="icon" aria-hidden="true"></span>
+    </summary>
+    <div class="body">
+      <dl>
+        <div><dt>Languages</dt><dd>Python, Java, C++, SQL, LabVIEW</dd></div>
+        <div><dt>Data and distributed systems</dt><dd>PySpark, Snowflake, MongoDB, Kafka, Qubole</dd></div>
+        <div><dt>Cloud and infrastructure</dt><dd>AWS (S3, EC2, CloudFormation), Docker, Kubernetes, Rancher, RabbitMQ, ElasticSearch</dd></div>
+        <div><dt>Tools and practices</dt><dd>Git, CI/CD, Pytest, GTest, YAML, GNU Make, prompt engineering, Agile and Scrum</dd></div>
+      </dl>
+    </div>
+  </details>
+
+  <details class="sec">
+    <summary>
+      <h2>Projects</h2>
+      <span class="gist">Fake news classification; self-driving car agent with reinforcement learning</span>
+      <span class="icon" aria-hidden="true"></span>
+    </summary>
+    <div class="body">
+      <div class="item">
+        <h3>Fake News Classification</h3>
+        <p>Comparative study of Decision Tree, Naive Bayes and SVM models for detecting fraudulent news articles, reaching about 77% accuracy. Weighed precision, recall and F1 trade-offs to pick the best-fit classifier.</p>
+      </div>
+      <div class="item">
+        <h3>Self-Driving Car Agent using Deep Reinforcement Learning</h3>
+        <p>Built a custom simulation environment in Unity and trained an autonomous car agent with PPO and A2C reinforcement learning algorithms to navigate the environment and reach a target destination.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="sec">
+    <summary>
+      <h2>Education</h2>
+      <span class="gist">MCA, Vellore Institute of Technology (2021); BCA, Techno India College of Technology (2019)</span>
+      <span class="icon" aria-hidden="true"></span>
+    </summary>
+    <div class="body">
+      <div class="item">
+        <h3>Master of Computer Applications</h3>
+        <span class="meta">Vellore Institute of Technology · May 2021 · CGPA 9.48</span>
+      </div>
+      <div class="item">
+        <h3>Bachelor of Computer Applications</h3>
+        <span class="meta">Techno India College of Technology · May 2019 · CGPA 9.38</span>
+      </div>
+    </div>
+  </details>
+</main>
+<script>
+(function () {
+  var btn = document.getElementById("toggle");
+  var all = function () { return document.querySelectorAll("details"); };
+  btn.addEventListener("click", function () {
+    var open = btn.getAttribute("data-open") !== "true";
+    all().forEach(function (d) { d.open = open; });
+    btn.setAttribute("data-open", open ? "true" : "false");
+    btn.textContent = open ? "Collapse all" : "Expand all";
+  });
+  window.addEventListener("beforeprint", function () { all().forEach(function (d) { d.open = true; }); });
+})();
+</script>
+</body>
+</html>
