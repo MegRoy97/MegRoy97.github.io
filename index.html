@@ -32,7 +32,6 @@ a{color:var(--accent)}
 .pr{color:var(--accent);font-weight:700}.hint{color:var(--muted)}
 .cur{display:inline-block;width:.6em;height:1.1em;vertical-align:text-bottom;background:var(--text);animation:blink 1s steps(2) infinite}
 @keyframes blink{50%{opacity:0}}
-.typing .after{visibility:hidden}
 .win{position:fixed;z-index:10;inset:2.25rem 0 4.5rem;border-radius:0;display:flex;flex-direction:column}
 .win[hidden]{display:none}
 .win .bar{justify-content:space-between;touch-action:none}
@@ -59,6 +58,32 @@ dt{font-weight:700;margin-top:1rem}dt:first-child{margin-top:0}dd{margin:.1rem 0
  #w-exp{left:17%;top:12%}#w-skills{left:22%;top:18%}#w-proj{left:27%;top:14%}#w-edu{left:32%;top:20%}#w-contact{left:37%;top:16%}
  .win .bar{cursor:grab}
 }
+.cvbtn{
+  margin-left:.5rem;padding:.2rem .8rem;border:1px solid var(--line);border-radius:999px;
+  font-size:.85rem;white-space:nowrap;
+  background-color:lightblue;color:#090909;
+  box-shadow:0 0 6px 1px rgba(173,216,230,.6);
+  animation:glow 2s ease-in-out infinite;
+}
+@keyframes glow{
+  0%,100%{box-shadow:0 0 6px 1px rgba(173,216,230,.6)}
+  50%{box-shadow:0 0 16px 4px rgba(173,216,230,.95)}
+}
+@media (prefers-reduced-motion:reduce){.cvbtn{animation:none}}
+.cvbtn:hover{border-color:var(--accent)}
+#cv{display:none}
+body.cv{background:#fff;color:#111;height:auto;overflow:auto;padding-bottom:2rem}
+body.cv .desk,body.cv .dock{display:none}
+body.cv #cv{display:block;max-width:48rem;margin:0 auto;padding:1.5rem 1.25rem}
+#cv a{color:#111}
+#cv h1{margin:0;font-size:2rem;line-height:1.15}
+#cv h2{margin:1.75rem 0 .6rem;padding-bottom:.25rem;border-bottom:1px solid #ccc;font-size:1.15rem}
+#cv h3{font-size:1rem}
+#cv .meta{color:#555}
+#cv dd{color:#333}
+#cv .tools button{margin-right:.5rem;padding:.45rem 1rem;border:1px solid #111;border-radius:6px;background:none;color:#111}
+@media (max-width:30rem){.menu .sub{display:none}}
+@media print{.menu,.dock,.tools{display:none!important}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){.cur{animation:none}}
 </style>
 </head>
@@ -77,13 +102,11 @@ dt{font-weight:700;margin-top:1rem}dt:first-child{margin-top:0}dd{margin:.1rem 0
   <section class="term mono" aria-label="Terminal">
     <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>megha@portfolio: ~</span></div>
     <div class="tb">
-      <p><span class="pr">megha@portfolio:~$</span> <span id="cmd">echo "Hi, I’m Megha Roy, an SDE and data engineer in Bangalore, India. 5+ years building scalable data pipelines, ETL workflows and AI-powered backend systems with Python, PySpark, MongoDB, ElasticSearch, Kubernetes and AWS."</span></p>
-      <div class="after">
-        <p><span class="pr">megha@portfolio:~$</span> ls folders/</p>
-        <p>experience/  skills/  projects/  education/  contact/</p>
-        <p class="hint"># tap a folder to open it</p>
-        <p><span class="pr">megha@portfolio:~$</span> <span class="cur" aria-hidden="true"></span></p>
-      </div>
+      <p><span class="pr">megha@portfolio:~$</span> <span class="cmd">echo "Hi, I’m Megha Roy, an SDE and data engineer in Bangalore, India. 5+ years building scalable data pipelines, ETL workflows and AI-powered backend systems with Python, PySpark, MongoDB, ElasticSearch, Kubernetes and AWS."</span></p>
+      <p><span class="pr">megha@portfolio:~$</span> <span class="cmd">ls folders/</span></p>
+      <p>experience/  skills/  projects/  education/  contact/</p>
+      <p><span class="pr">megha@portfolio:~$</span> <span class="cmd">echo "Tap on a folder for more! Or click on 'Basic Resume' for a...basic resume ^_^"</span></p>
+      <p><span class="pr">megha@portfolio:~$</span> <span class="cur" aria-hidden="true"></span></p>
     </div>
   </section>
 
@@ -116,7 +139,7 @@ dt{font-weight:700;margin-top:1rem}dt:first-child{margin-top:0}dd{margin:.1rem 0
       <dt>Languages</dt><dd>Python, Java, C++, SQL, LabVIEW</dd>
       <dt>Data and distributed systems</dt><dd>PySpark, Snowflake, MongoDB, Kafka, Qubole</dd>
       <dt>Cloud and infrastructure</dt><dd>AWS (S3, EC2, CloudFormation), Docker, Kubernetes, Rancher, RabbitMQ, ElasticSearch</dd>
-      <dt>Tools and practices</dt><dd>Git, CI/CD, Pytest, GTest, YAML, GNU Make, prompt engineering, AI agents, Agile and Scrum</dd>
+      <dt>Tools and practices</dt><dd>Git, CI/CD, Pytest, GTest, YAML, GNU Make, prompt engineering, Agile and Scrum</dd>
     </dl></div>
   </section>
 
@@ -146,11 +169,51 @@ dt{font-weight:700;margin-top:1rem}dt:first-child{margin-top:0}dd{margin:.1rem 0
     </div>
   </section>
 </main>
+<article id="cv" aria-label="Basic CV">
+  <h1>Megha Roy</h1>
+  <p class="meta">SDE &amp; Data Engineer · Bangalore, India</p>
+  <p><a href="mailto:megroy1997@gmail.com">megroy1997@gmail.com</a> · <a href="https://www.linkedin.com/in/megroy97/">LinkedIn</a> · <a href="https://github.com/MegRoy97">GitHub</a> · <a href="https://leetcode.com/u/MegR/">LeetCode</a></p>
+  <p class="tools"><button type="button" id="print">Print or save as PDF</button><button type="button" id="back">Desktop view</button></p>
+  <h2>Summary</h2>
+  <p>SDE and data engineer with 5+ years of experience building scalable data pipelines, ETL workflows and AI-powered backend systems using Python, PySpark, MongoDB, ElasticSearch, Kubernetes and AWS.</p>
+  <h2>Skills</h2>
+  <dl>
+    <dt>Languages</dt><dd>Python, Java, C++, SQL, LabVIEW</dd>
+    <dt>Data and distributed systems</dt><dd>PySpark, Snowflake, MongoDB, Kafka, Qubole</dd>
+    <dt>Cloud and infrastructure</dt><dd>AWS (S3, EC2, CloudFormation), Docker, Kubernetes, Rancher, RabbitMQ, ElasticSearch</dd>
+    <dt>Tools and practices</dt><dd>Git, CI/CD, Pytest, GTest, YAML, GNU Make, prompt engineering, Agile and Scrum</dd>
+  </dl>
+  <h2>Experience</h2>
+  <div class="job"><h3>Software Engineer II, NI (National Instruments)</h3><span class="meta">Jan 2023 – Present</span>
+    <ul>
+      <li>Built data pipelines using SQL and PySpark across Qubole and Snowflake data lakes to extract, transform and join business datasets. Automated Python workflows that integrate Gainsight REST APIs and enrich customer records with business intelligence.</li>
+      <li>Built an LLM-powered natural language to MongoDB query generator using Python, PyMongo and the OpenAI API, retrieving schema context to generate accurate queries. Delivered a Streamlit frontend that lets non-technical users run complex queries without schema knowledge, reducing reliance on data engineers and speeding up self-serve insight.</li>
+      <li>Designed and maintained ETL workflows using Python, AWS S3, Qubole, ElasticSearch and Rancher to process customer product usage data, helping R&amp;D and Sales teams make data-driven projections and decisions.</li>
+      <li>Developed PySpark datasets on Qubole for advanced analytics, supporting customer segmentation and product usage trend analysis.</li>
+      <li>Added Customer Experience Improvement Program (CEIP) data logging in C++ and C# within LabVIEW and NI’s licensing codebase, enabling more targeted customer engagement and product updates.</li>
+      <li>Developed and maintained CI/CD pipelines for multiple NI products, streamlining feature deployment and keeping a continuous watch on product stability and performance.</li>
+    </ul></div>
+  <div class="job"><h3>Software Engineer I, NI (National Instruments)</h3><span class="meta">Jul 2021 – Dec 2022</span>
+    <ul>
+      <li>Optimized Python, LabVIEW and C++ test automation workflows across multiple NI products, contributing to an 80% reduction in required testing time.</li>
+      <li>Integrated new functionality into SLSC to display calibration metadata (next calibration date, due date, gain, offset) using Python, C++ and LabVIEW, with GTests to validate the new modules.</li>
+      <li>Served as Scrum Master for the team and mentored interns and new hires on engineering practices and team workflows.</li>
+    </ul></div>
+  <div class="job"><h3>RF Driver Intern, NI (National Instruments)</h3><span class="meta">Sep 2020 – Jun 2021</span>
+    <ul><li>Migrated smoke and speed tests for multiple RF personalities from Jenkins to NI Dashboard using Python, YAML, Mako and GNU Make, automating test execution and streamlining test infrastructure.</li></ul></div>
+  <h2>Projects</h2>
+  <div class="item"><h3>Fake News Classification</h3><p>Comparative study of Decision Tree, Naive Bayes and SVM models for detecting fraudulent news articles, reaching about 77% accuracy. Weighed precision, recall and F1 trade-offs to pick the best-fit classifier.</p></div>
+  <div class="item"><h3>Self-Driving Car Agent using Deep Reinforcement Learning</h3><p>Built a custom simulation environment in Unity and trained an autonomous car agent with PPO and A2C reinforcement learning algorithms to navigate the environment and reach a target destination.</p></div>
+  <h2>Education</h2>
+  <div class="item"><h3>Master of Computer Applications</h3><span class="meta">Vellore Institute of Technology · May 2021 · CGPA 9.48</span></div>
+  <div class="item"><h3>Bachelor of Computer Applications</h3><span class="meta">Techno India College of Technology · May 2019 · CGPA 9.38</span></div>
+</article>
 <footer class="dock"><div>
   <a class="p" href="mailto:megroy1997@gmail.com">Email</a>
   <a href="https://www.linkedin.com/in/megroy97/">LinkedIn</a>
   <a href="https://github.com/MegRoy97">GitHub</a>
   <a href="https://leetcode.com/u/MegR/">LeetCode</a>
+  <button type="button" id="cvbtn" class="cvbtn">Basic Resume</button>
 </div></footer>
 <script>
 (function () {
@@ -178,13 +241,41 @@ dt{font-weight:700;margin-top:1rem}dt:first-child{margin-top:0}dd{margin:.1rem 0
       bar.onpointerup = function () { bar.onpointermove = null; };
     });
   });
-  var cmd = $("#cmd"), full = cmd.textContent;
+  var cvbtn = $("#cvbtn");
+  function applyHash() {
+    var on = location.hash === "#cv";
+    document.body.classList.toggle("cv", on);
+    cvbtn.textContent = on ? "Desktop view" : "Basic CV";
+    if (on) window.scrollTo(0, 0);
+  }
+  cvbtn.addEventListener("click", function () { location.hash = document.body.classList.contains("cv") ? "" : "cv"; });
+  $("#back").addEventListener("click", function () { location.hash = ""; });
+  $("#print").addEventListener("click", function () { window.print(); });
+  window.addEventListener("hashchange", applyHash);
+  applyHash();
+
+  // Type every command in the terminal, one line after another.
+  // Untyped text stays in the layout (invisible) so nothing jumps around.
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    document.body.classList.add("typing"); cmd.textContent = "";
-    var i = 0;
-    (function k() {
-      cmd.textContent = full.slice(0, ++i);
-      if (i < full.length) setTimeout(k, 16); else document.body.classList.remove("typing");
+    var lines = $$(".tb > p");
+    lines.forEach(function (p) { p.style.visibility = "hidden"; });
+    var n = 0;
+    (function next() {
+      if (n >= lines.length) return;
+      var p = lines[n++];
+      p.style.visibility = "visible";
+      var c = p.querySelector(".cmd");
+      if (!c) { setTimeout(next, 300); return; }
+      var full = c.textContent, i = 0;
+      var done = document.createElement("span"), rest = document.createElement("span");
+      rest.style.visibility = "hidden";
+      c.textContent = ""; c.appendChild(done); c.appendChild(rest);
+      (function k() {
+        i++;
+        done.textContent = full.slice(0, i);
+        rest.textContent = full.slice(i);
+        if (i < full.length) setTimeout(k, 16); else setTimeout(next, 400);
+      })();
     })();
   }
 })();
